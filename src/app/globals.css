@@ -1,0 +1,85 @@
+/* globals.css - Global styles with Tailwind layers */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-dark-bg text-dark-text;
+  }
+
+  /* Typography Hierarchy */
+  h1 {
+    @apply text-4xl md:text-6xl font-bold tracking-tight;
+  }
+
+  h2 {
+    @apply text-2xl md:text-4xl font-bold tracking-tight;
+  }
+
+  h3 {
+    @apply text-xl md:text-2xl font-semibold;
+  }
+
+  p {
+    @apply leading-relaxed;
+  }
+
+  button {
+    @apply transition-colors duration-300 ease-out;
+  }
+
+  a {
+    @apply transition-colors duration-300;
+  }
+}
+
+@layer components {
+  .container-safe {
+    @apply max-w-7xl mx-auto px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24 lg:py-32;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 bg-accent-cyan text-dark-bg font-semibold rounded-lg hover:bg-accent-hover transition-colors duration-200;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 border border-dark-border text-dark-text font-semibold rounded-lg hover:border-accent-cyan hover:text-accent-cyan transition-colors duration-200;
+  }
+
+  .link-accent {
+    @apply text-accent-cyan hover:text-accent-hover transition-colors duration-200;
+  }
+
+  .card-base {
+    @apply bg-dark-surface border border-dark-border rounded-xl overflow-hidden transition-all duration-300;
+  }
+
+  .card-interactive {
+    @apply card-base hover:border-accent-cyan hover:shadow-lg hover:shadow-accent-cyan/10 cursor-pointer;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-dark-surface/80 backdrop-blur-md border border-dark-border/50;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-accent-cyan to-accent-teal bg-clip-text text-transparent;
+  }
+
+  .focus-ring {
+    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan focus-visible:ring-offset-2 focus-visible:ring-offset-dark-bg;
+  }
+}
